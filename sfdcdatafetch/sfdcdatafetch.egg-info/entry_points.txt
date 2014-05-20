@@ -1,0 +1,5 @@
+      [paste.app_factory]
+      main = sfdcdatafetch:main
+      [console_scripts]
+      initialize_sfdcdatafetch_db = sfdcdatafetch.scripts.initializedb:main
+      

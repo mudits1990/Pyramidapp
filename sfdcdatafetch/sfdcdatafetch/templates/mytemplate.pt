@@ -1,0 +1,22 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+    <script src="${request.static_url('sfdcdatafetch:static/example.js')}"></script>
+    <script  type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+<div ng-controller="ModalDemoCtrl">
+    <div class="container">
+    <button id="login" class="btn btn-info">Salesforce Login</button>
+    </div>
+</div>
+  </body>
+  <script>
+    $("#login").click( function(){
+        window.location.replace("https://login.salesforce.com/services/oauth2/authorize?response_type=code&client_id=3MVG9Y6d_Btp4xp6OwOuiNQWWJpbLZjerzlwDJNUIg4NXa59xlmeoQdLw1KaUVGED5Hu_DuMUCbsEVKLKDjhl&redirect_uri=https://localhost:6543/sObject");
+    })
+  </script>
