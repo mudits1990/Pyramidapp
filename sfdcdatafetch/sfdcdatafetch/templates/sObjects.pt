@@ -8,15 +8,7 @@
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
+    <p>Got Here!</p>
 
-<div ng-controller="ModalDemoCtrl">
-    <div class="container">
-    <button id="login" class="btn btn-info">Salesforce Login</button>
-    </div>
-</div>
   </body>
-  <script>
-    $("#login").click( function(){
-        window.location.replace("https://login.salesforce.com/services/oauth2/authorize?response_type=code&client_id=3MVG9Y6d_Btp4xp6OwOuiNQWWJpbLZjerzlwDJNUIg4NXa59xlmeoQdLw1KaUVGED5Hu_DuMUCbsEVKLKDjhl&redirect_uri=https://locahost:6543/sObjects");
-    })
-  </script>
+</html>

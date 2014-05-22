@@ -1,6 +1,7 @@
 from pyramid.response import Response
 from pyramid.view import view_config
-
+import urlparse
+import requests
 from sqlalchemy.exc import DBAPIError
 
 from .models import (
@@ -32,4 +33,6 @@ might be caused by one of the following things:
 After you fix the problem, please restart the Pyramid application to
 try it again.
 """
-
+@view_config(route_name='sObjects', renderer='templates/sObjects.pt')
+def sObject_view(request):
+    return {'project':'sfdcdatafetch'}
