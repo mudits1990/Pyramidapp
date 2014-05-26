@@ -1,0 +1,5 @@
+#pyc files
+*.pyc
+
+#egg-info files
+*.egg-info
