@@ -1,5 +1,4 @@
 from simple_salesforce import Salesforce, SalesforceLogin, SFType
-import json
 import mongoadapter
 
 class sfdcdatafetch():

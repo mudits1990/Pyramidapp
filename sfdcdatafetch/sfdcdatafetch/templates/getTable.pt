@@ -8,15 +8,6 @@
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <form role="form" action="getTable" method="post">
-        <div class="form-group">
-        <li tal:repeat = "object objects" style ="list-style-type:none ">
-        <label>
-            <input type="checkbox" name="selectedcategories" value="${object['name']}"> ${object['label']}
-        </label>
-        </li>
-        </div>
-        <button type="submit" id="Ok" class="btn btn-info">Ok</button>
-    </form>
+    <p>Got here!</p>
   </body>
 </html>

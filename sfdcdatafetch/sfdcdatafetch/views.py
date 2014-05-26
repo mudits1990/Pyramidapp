@@ -50,5 +50,10 @@ def sObject_view(request):
     log.debug("access_token : %s, instance_url : %s",token_response['access_token'],token_response['instance_url'])
     sf = sfdc.sfdcdatafetch(token_response['access_token'],token_response['instance_url'])
     object = sf.returnsObject()
-    log.debug(object)
+    #log.debug(object)
     return {'objects':object}
+@view_config(route_name='getTable', renderer='templates/getTable.pt')
+def getTable(request):
+    selected = request.params.getall("selectedcategories")
+    log.debug(selected)
+    return {}
