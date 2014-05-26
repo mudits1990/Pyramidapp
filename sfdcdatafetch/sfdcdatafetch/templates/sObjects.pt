@@ -9,6 +9,9 @@
   </head>
   <body>
     <p>Got Here!</p>
-
+    <div class="form-group">
+    <label>
+        <input type="radio" tal:repeat ="object objects"> ${objects['label']}
+    </div>
   </body>
 </html>

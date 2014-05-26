@@ -1,22 +1,23 @@
 from pyramid.response import Response
 from pyramid.view import view_config
-import urlparse
-import requests
 from sqlalchemy.exc import DBAPIError
-
+from scripts import auth
+from scripts import sfdc
+from pyramid.renderers import render_to_response
+import logging
 from .models import (
     DBSession,
     MyModel,
     )
 
-
+log = logging.getLogger(__name__)
 @view_config(route_name='home', renderer='templates/mytemplate.pt')
 def my_view(request):
     try:
         one = DBSession.query(MyModel).filter(MyModel.name == 'one').first()
     except DBAPIError:
         return Response(conn_err_msg, content_type='text/plain', status_int=500)
-    return {'one': one, 'project': 'sfdcdatafetch'}
+    return {}
 
 conn_err_msg = """\
 Pyramid is having a problem using your SQL database.  The problem
@@ -35,4 +36,19 @@ try it again.
 """
 @view_config(route_name='sObjects', renderer='templates/sObjects.pt')
 def sObject_view(request):
-    return {'project':'sfdcdatafetch'}
+    consumer_id = '3MVG9Y6d_Btp4xp6OwOuiNQWWJpbLZjerzlwDJNUIg4NXa59xlmeoQdLw1KaUVGED5Hu_DuMUCbsEVKLKDjhl'
+    consumer_secret = '8334446631108857716'
+    redirect_uri = 'https://localhost/sObjects'
+    code = request.GET['code']
+    data = {
+        'grant_type': 'api',
+        'redirect_uri': redirect_uri,
+        'code':code
+    }
+    sfoAuth = auth.SalesforceOAuth2(consumer_id,consumer_secret,redirect_uri)
+    token_response = sfoAuth.get_token(code)
+    log.debug("access_token : %s, instance_url : %s",token_response['access_token'],token_response['instance_url'])
+    sf = sfdc.sfdcdatafetch(token_response['access_token'],token_response['instance_url'])
+    object = sf.returnsObject()
+    log.debug(object)
+    return {'objects':object}

@@ -16,7 +16,10 @@ sfdcdatafetch.egg-info/not-zip-safe
 sfdcdatafetch.egg-info/requires.txt
 sfdcdatafetch.egg-info/top_level.txt
 sfdcdatafetch/scripts/__init__.py
+sfdcdatafetch/scripts/auth.py
 sfdcdatafetch/scripts/initializedb.py
+sfdcdatafetch/scripts/mongoadapter.py
+sfdcdatafetch/scripts/sfdc.py
 sfdcdatafetch/static/example.js
 sfdcdatafetch/static/pyramid-16x16.png
 sfdcdatafetch/static/pyramid.png
