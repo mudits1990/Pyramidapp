@@ -67,7 +67,7 @@ def getTable(request):
     log.debug(auth_data.access_token)
     log.debug(auth_data.refresh_token)
     sfoAuth = auth.SalesforceOAuth2(consumer_id,consumer_secret,redirect_uri)
-    rf_token = sfoAuth.refresh_token(auth_data.refresh_token)
+    rf_token = sfoAuth.revoke_token(auth_data.refresh_token)
     sf = sfdc.sfdcdatafetch(rf_token,auth_data.instance_url)
     field_types=[]
     for x in selected:
