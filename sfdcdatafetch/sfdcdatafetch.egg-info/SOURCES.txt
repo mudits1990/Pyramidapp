@@ -26,5 +26,6 @@ sfdcdatafetch/static/pyramid.png
 sfdcdatafetch/static/theme.css
 sfdcdatafetch/static/theme.min.css
 sfdcdatafetch/static/ui-bootstrap-tpls-0.11.0.min.js
+sfdcdatafetch/templates/getTable.pt
 sfdcdatafetch/templates/mytemplate.pt
 sfdcdatafetch/templates/sObjects.pt
